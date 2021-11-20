@@ -1,6 +1,6 @@
 #include <stdio.h>
 //Recebe um inteiro n e um vetor de inteiros de tamanho n e os ordena por meio do metodo de insercao
-void selectionSort(int n, int *vet);
+void insertionSort(int n, int *vet);
 
 int main()
 {
@@ -12,7 +12,7 @@ int main()
         scanf("%d", &vet[i]);
     }
 
-    selectionSort(n, vet);
+    insertionSort(n, vet);
 
     for (int i = 0; i < n; i++)
     {
@@ -20,7 +20,7 @@ int main()
     }
 }
 
-void selectionSort(int n, int *vet)
+void insertionSort(int n, int *vet)
 {
     int i, j, x;
     for (i = 1; i < n; i++)
