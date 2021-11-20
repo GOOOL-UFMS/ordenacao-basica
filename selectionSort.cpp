@@ -1,13 +1,13 @@
 #include <stdio.h>
-#define MAX 100
-void selectionSort(int n, int vet[MAX]);
+//Recebe um inteiro n e um vetor de inteiros de tamanho n e os ordena por meio do metodo de selecao
+void selectionSort(int n, int *vet);
 void troca(int &a, int &b);
 
 int main()
 {
     int n;
     scanf("%d", &n);
-    int vet[MAX];
+    int vet[n];
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &vet[i]);
@@ -21,7 +21,7 @@ int main()
     }
 }
 
-void selectionSort(int n, int vet[MAX])
+void selectionSort(int n, int *vet)
 {
     int i, j, min;
 
