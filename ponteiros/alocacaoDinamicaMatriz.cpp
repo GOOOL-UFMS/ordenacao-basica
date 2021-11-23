@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//Aloca uma matriz dinamicamente e faz a impressao dela
+//Aloca uma matriz dinamicamente e faz a impressao dela depois faz a desalocacao
 int main()
 {
     int i, j, m, n, **matriz, **pt;
@@ -27,5 +27,9 @@ int main()
         }
         printf("\n");
     }
+    for (i=0;i<m;i++){
+        free(matriz[i]);
+    }
+    free(matriz);
     }
 }
