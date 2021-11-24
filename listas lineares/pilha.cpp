@@ -6,10 +6,10 @@ struct celula
     int chave;
     struct celula *prox;
 };
-void empilharI(int , celula *&);
-int desempilharI(celula *&);
-void desalocarP(celula *&);
-void imprimePI(celula *);
+void empilharI(int x, celula *&lst);
+int desempilharI(celula *&lst);
+void desalocarP(celula *&lst);
+void imprimePI(celula *lst);
 int main(){
     celula *pilha = NULL;
     int op,num;
