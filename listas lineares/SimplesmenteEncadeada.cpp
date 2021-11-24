@@ -20,7 +20,8 @@ void copiaVetorParaLista(celula *lst, int *vet);
 int contaNos(celula *&lst);
 int remove_fim(celula *&lst);
 
-int main(){
+int main()
+{
     celula *lista1 = NULL;
 }
 
@@ -88,8 +89,6 @@ int remove_fim(celula *&lst)
 
     return chave;
 }
-
-
 
 void busca_remove(int n, celula *&lst)
 {
@@ -162,12 +161,12 @@ void removerPares(celula *&lst)
         {
             if (p == NULL)
             {
-                lst = lst->prox; 
+                lst = lst->prox;
                 free(q);
                 q = lst;
             }
             else
-            { 
+            {
                 p->prox = q->prox;
                 free(q);
                 q = p->prox;
@@ -201,23 +200,26 @@ celula *concatenar(celula *lst1, celula *lst2)
     }
 } */
 
-
-void copiaListaParaVetor(celula *lst, int *vet){
+void copiaListaParaVetor(celula *lst, int *vet)
+{
 
     celula *q;
     q = lst;
     int cont = 0;
-    while(q->prox != NULL){
-        vet[cont]=q->chave;
+    while (q->prox != NULL)
+    {
+        vet[cont] = q->chave;
         q = q->prox;
-        cont ++; 
+        cont++;
     }
 }
 
-void copiaVetorParaLista(celula *lst, int *vet){
-    int tamanho = sizeof vet /4;
-    for (int i = 0; i < tamanho;i++){
-        inserir_fim(vet[i],lst);
+void copiaVetorParaLista(celula *lst, int *vet)
+{
+    int tamanho = sizeof vet / 4;
+    for (int i = 0; i < tamanho; i++)
+    {
+        inserir_fim(vet[i], lst);
     }
 }
 
