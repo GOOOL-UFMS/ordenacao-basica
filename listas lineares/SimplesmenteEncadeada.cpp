@@ -15,11 +15,13 @@ void desalocar(celula *&lst);
 void inserir_aposI(int x, int i, celula *&lst);
 void removerPares(celula *&lst);
 celula *concatenar(celula *lst1, celula *lst2);
+void copiaListaParaVetor(celula *lst, int *vet);
+void copiaVetorParaLista(celula *lst, int *vet);
+int contaNos(celula *&lst);
+int remove_fim(celula *&lst);
 
-int main()
-{
-    //iniciando uma lista vazia
-    celula *lista = NULL;
+int main(){
+    celula *lista1 = NULL;
 }
 
 void imprime_lista(celula *lst)
@@ -61,6 +63,33 @@ void inserir_fim(int n, celula *&lst)
         p->prox = novo;
     }
 }
+
+int remove_fim(celula *&lst)
+{
+
+    celula *p;
+    celula *aux;
+    int chave;
+    p = lst;
+
+    if (p->prox == NULL)
+    {
+        return p->chave;
+    }
+
+    while (p->prox != NULL)
+    {
+        aux = p;
+        p = p->prox;
+    }
+    chave = p->chave;
+    aux->prox = NULL;
+    p->prox = aux->prox;
+
+    return chave;
+}
+
+
 
 void busca_remove(int n, celula *&lst)
 {
@@ -151,7 +180,7 @@ void removerPares(celula *&lst)
         }
     }
 }
-
+/* 
 celula *concatenar(celula *lst1, celula *lst2)
 {
     celula *p;
@@ -170,4 +199,38 @@ celula *concatenar(celula *lst1, celula *lst2)
         lst2 = NULL;
         return lst1;
     }
+} */
+
+
+void copiaListaParaVetor(celula *lst, int *vet){
+
+    celula *q;
+    q = lst;
+    int cont = 0;
+    while(q->prox != NULL){
+        vet[cont]=q->chave;
+        q = q->prox;
+        cont ++; 
+    }
+}
+
+void copiaVetorParaLista(celula *lst, int *vet){
+    int tamanho = sizeof vet /4;
+    for (int i = 0; i < tamanho;i++){
+        inserir_fim(vet[i],lst);
+    }
+}
+
+int contaNos(celula *&lst)
+{
+    celula *q;
+    q = lst;
+    int cont = 0;
+
+    while (q != NULL)
+    {
+        cont++;
+        q = q->prox;
+    }
+    return cont;
 }
